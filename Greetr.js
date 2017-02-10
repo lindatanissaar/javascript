@@ -3,7 +3,7 @@
  */
 //luuakse IIFE funktsioon, millel on kaks parameetrit (global, $)
 // parameetritele antakse väärtused window ja jQUery
-//
+//viimases polnud muutusi
 (function(global, $) {
     //luuakse objekt, selleks et ei peaks kasutama keyword new'd kogu aeg
     var Greetr = function(firstName, lastName, language) {
