@@ -137,6 +137,8 @@
         self.lastName = lastName || '';
         self.language = language || 'en';
 
+        self.validate();
+
     }
 
     //viidatakse objektidele
