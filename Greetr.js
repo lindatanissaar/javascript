@@ -97,6 +97,33 @@
 
             return this;
         }
+        // luuakse funktsioon HTMLGreeting, millel on kaks parameetrit
+        HTMLGreeting: function(selector, formal) {
+
+            // kui jqueryt ei leita, väljastab errori
+            if (!$) {
+                throw 'jQuery not loaded';
+            }
+
+            // kui selektorit ei ole, väljastab errori
+            if (!selector) {
+                throw 'Missing jQuery selector';
+            }
+
+            // vaatab, kas tervitus on formaalne või mitte
+            var msg;
+            if (formal) {
+                msg = this.formalGreeting();
+            }
+            else {
+                msg = this.greeting();
+            }
+
+            // selektor antakse edasi jquery objektile
+            $(selector).html(msg);
+
+            return this;
+        }
 
     };
 
@@ -119,6 +146,4 @@
     global.Greetr = global.G$ = Greetr;
 
 }(window, jQuery));
-
-
 
