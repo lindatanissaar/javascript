@@ -4,3 +4,4 @@ var g = G$('John', 'Doe');
 //kutsutakse meetodit greet ning keeleks määratakse hispaania keel
 g.greet().setLang('es').greet(true).log();
 
+//6. on sama
