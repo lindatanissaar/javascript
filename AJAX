@@ -1,64 +1,64 @@
+//ESIMENE ajaxi kood
+
+<script>
+    $(function () {
+        //pärast nupule vajutamist omistatakse muutujatele firstName, lastName ja pin väärtused
+        $('#btnSubmit1').click(function () {
+            var firstName = $("#firstName").val();
+            var lastName = $("#lastName").val();
+            var pin = $("#pin").val();
+            //firstName, lastName ja pin saadetakse POST päringuga users kontrollerisse addingEnterants meetodisse
+            $.post("users/addingEnterants", {
+                firstName: firstName,
+                lastName: lastName,
+                pin: pin
+                // kui php failis jõuti kohani echo "success", muudetakse HTMLi elemendi sisu, kui mitte, antakse veateade
+            }).done(function (data) {
+                if (data == "success") {
+                    document.getElementById('alertText1').innerHTML = "Uus kasutaja lisatud"
+                } else {
+                    alert("Error!")
+                }
+            });
+        });
+    });
+</script>
+
+//TEINE ajaxi kood
+
+<script>
+    $(function () {
+        //pärast nupule vajutamist omistatakse muutujatele email ja password väärtused
+        $('#btnSubmit2').click(function () {
+            var email = $("#email").val();
+            var password = $("#password").val();
+            //email ja password saadetakse POST päringuga users kontrollerisse addingAdmins meetodisse
+            $.post("users/addingAdmins", {
+                email: email,
+                password: password
+                //kui php failis jõuti kohani echo "success", muudetakse HTMLi elemendi sisu, kui mitte, antakse veateade
+            }).done(function (data) {
+                if (data == "success") {
+                    document.getElementById('alertText1').innerHTML = "Uus admin lisatud"
+                } else {
+                    alert("Error!")
+                }
+            });
+        });
+    });
+</script >
+
+// KOLMAS ajaxi kood
     
-	//ESIMENE ajaxi kood
-	<script>
-        $(function () {
-			//pärast nupule vajutamist omistatakse muutujatele firstName, lastName ja pin väärtused
-            $('#btnSubmit1').click(function () {
-                var firstName = $("#firstName").val();
-                var lastName = $("#lastName").val();
-                var pin = $("#pin").val();
-				//firstName, lastName ja pind saadetakse POST päringuga users kontrollerisse addingEnterants meetodisse  
-                $.post("users/addingEnterants", {
-                    firstName: firstName,
-                    lastName: lastName,
-                    pin: pin
-				// kui php failis jõuti kohani echo "success", muudetakse HTMLi elemendi sisu, kui mitte, antakse veateade
-                }).done(function (data) {
-                    if (data == "success") {
-                        document.getElementById('alertText1').innerHTML = "Uus kasutaja lisatud"
-                    } else {
-                        alert("Error!")
-                    }
-                });
-            });
-        });
-    </script>
-	
-	// TEINE ajaxi kood
-	
-	<script>
-        $(function () {
-			//pärast nupule vajutamist omistatakse muutujatele email ja password väärtused
-            $('#btnSubmit2').click(function () {
-                var email = $("#email").val();
-                var password = $("#password").val();
-				//email ja password saadetakse POST päringuga users kontrollerisse addingAdmins meetodisse
-                $.post("users/addingAdmins", {
-                    email: email,
-                    password: password
-					//kui php failis jõuti kohani echo "success", muudetakse HTMLi elemendi sisu, kui mitte, antakse veateade
-                }).done(function (data) {
-                    if (data == "success") {
-                        document.getElementById('alertText1').innerHTML = "Uus admin lisatud"
-                    } else {
-                        alert("Error!")
-                    }
-                });
-            });
-        });
-    </script>
-	
-	// KOLMAS ajaxi kood
-	<script>
-		// teeb ajaxi päringu
-		$.ajax({
-				url:"users/insertingQuestions", // saadetakse users kontrollerisse insertingQuestions meetodisse
-				method:"POST", // tehakse POST päring
-				data:{text:text}, // andmed, mis saadetakse on text, mille väärtus on text (muutuja)
-				dataType:"text", // tüübiks on tekst
-				success:function(data){ // kui päring õnnestub, kuvatakse JS alert, mille sisuks on php failist päris tekst (echo "";)
-						alert(data);
-						}
-			   });
-	</script>
-             
+<script>
+    // teeb ajaxi päringu
+    $.ajax({
+        url: "users/insertingQuestions", // saadetakse users kontrollerisse insertingQuestions meetodisse
+        method: "POST", // tehakse POST päring
+        data: {text: text}, // andmed, mis saadetakse on text, mille väärtus on text (muutuja)
+        dataType: "text", // tüübiks on tekst
+        success: function (data) { // kui päring õnnestub, kuvatakse JS alert, mille sisuks on php failist päris tekst (echo "";)
+            alert(data);
+        }
+    });
+</script >
